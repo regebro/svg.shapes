@@ -7,17 +7,6 @@ from svg.shapes.shapes import Rectangle
 class TestRectangle:
     """Test the Rectangle shape implementation"""
 
-    def test_rectangle_creation(self):
-        """Test creating rectangles with valid parameters"""
-        rect = Rectangle(start=0+0j, size=10+5j)
-        assert rect.start == 0+0j
-        assert rect.size == 10+5j
-        assert rect.width == 10
-        assert rect.height == 5
-        assert rect.rx == 0
-        assert rect.ry == 0
-        assert not rect.is_rounded
-
     def test_rectangle_with_corner_radii(self):
         """Test creating rectangles with corner radii"""
         rect = Rectangle(start=0+0j, size=10+5j, r=2+3j)

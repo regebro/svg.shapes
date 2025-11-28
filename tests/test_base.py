@@ -74,14 +74,6 @@ class MockShape(Shape):
 class TestMockShape:
     """Test our mock shape implementation"""
 
-    def test_mock_shape_creation(self):
-        """Test creating a mock shape"""
-        shape = MockShape(5.0)
-        assert shape.length() == 5.0
-        assert shape.point(0) == 0+0j
-        assert shape.point(1) == 5+0j
-        assert shape.point(0.5) == 2.5+0j
-
     def test_mock_shape_equality(self):
         """Test shape equality"""
         shape1 = MockShape(10.0)

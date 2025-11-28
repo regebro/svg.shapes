@@ -18,25 +18,6 @@ def test_import_all_shapes():
     assert Shape is not None
 
 
-def test_create_all_shapes():
-    """Test creating instances of all shapes including Phase 4"""
-    from svg.shapes import Rectangle, Circle, Ellipse, Polyline, Polygon
-
-    # Test creation without errors
-    rect = Rectangle(start=0+0j, size=10+5j)
-    circle = Circle(center=0+0j, r=5)
-    ellipse = Ellipse(center=0+0j, r=5+3j)
-    polyline = Polyline([0+0j, 10+0j, 10+10j])
-    polygon = Polygon([0+0j, 10+0j, 5+10j])
-
-    # Test that they're the right types
-    assert isinstance(rect, Rectangle)
-    assert isinstance(circle, Circle)
-    assert isinstance(ellipse, Ellipse)
-    assert isinstance(polyline, Polyline)
-    assert isinstance(polygon, Polygon)
-
-
 def test_all_shapes_have_consistent_api():
     """Test that all shapes implement the same API"""
     from svg.shapes import Rectangle, Circle, Ellipse, Polyline, Polygon

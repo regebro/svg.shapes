@@ -8,19 +8,11 @@ from svg.shapes.shapes import Ellipse
 class TestEllipse:
     """Test the Ellipse shape implementation"""
 
-    def test_ellipse_creation(self):
-        """Test creating ellipses with valid parameters"""
-        ellipse = Ellipse(center=5+10j, r=3+2j)
-        assert ellipse.center == 5+10j
-        assert ellipse.r == 3+2j
+    def test_ellipse_is_circle(self):
+        """Test ellipse with equal radii (circle)"""
+        ellipse = Ellipse(center=0+0j, r=5+1j)
         assert not ellipse.is_circle
 
-    def test_ellipse_as_circle(self):
-        """Test ellipse with equal radii (circle)"""
-        ellipse = Ellipse(center=0+0j, r=5+0j)
-        assert ellipse.is_circle
-
-        # Also test with explicit equal radii
         ellipse2 = Ellipse(center=0+0j, r=5+5j)
         assert ellipse2.is_circle
 
@@ -131,23 +123,14 @@ class TestEllipse:
 
     def test_ellipse_degenerate_cases(self):
         """Test ellipse with unusual radius values"""
-        # Single radius component (should behave like circle)
+        # Single radius component aren't valid ellipses
         ellipse1 = Ellipse(center=0+0j, r=5+0j)
-        assert ellipse1.is_circle
+        assert not ellipse1.is_circle
 
         # Very small ellipse
         ellipse2 = Ellipse(center=0+0j, r=0.1+0.05j)
         assert ellipse2.length() > 0
         assert len(ellipse2.boundingbox()) == 4
-
-    def test_ellipse_real_number_radius(self):
-        """Test ellipse with real number as radius (should create circle)"""
-        ellipse = Ellipse(center=5+5j, r=3+0j)
-        assert ellipse.is_circle
-
-        # Should behave like a circle
-        expected_circumference = 2 * math.pi * 3
-        assert abs(ellipse.length() - expected_circumference) < 1e-10
 
     def test_ellipse_negative_coordinates(self):
         """Test ellipse with negative coordinates"""

@@ -8,20 +8,20 @@ from svg.shapes.shapes import Polyline
 class TestPolyline:
     """Test the Polyline shape implementation"""
 
-    def test_polyline_creation_empty(self):
+    def test_polyline_empty(self):
         """Test creating empty polyline"""
         polyline = Polyline([])
         assert polyline.points == []
         assert polyline.point_count == 0
 
-    def test_polyline_creation_single_point(self):
+    def test_polyline_single_point(self):
         """Test creating polyline with single point"""
         points = [5+10j]
         polyline = Polyline(points)
         assert polyline.points == points
         assert polyline.point_count == 1
 
-    def test_polyline_creation_multiple_points(self):
+    def test_polyline_multiple_points(self):
         """Test creating polyline with multiple points"""
         points = [0+0j, 10+0j, 10+10j, 0+10j]
         polyline = Polyline(points)

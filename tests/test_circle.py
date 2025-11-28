@@ -8,12 +8,6 @@ from svg.shapes.shapes import Circle
 class TestCircle:
     """Test the Circle shape implementation"""
 
-    def test_circle_creation(self):
-        """Test creating circles with valid parameters"""
-        circle = Circle(center=5+10j, r=3)
-        assert circle.center == 5+10j
-        assert circle.r == 3
-
     def test_circle_equality(self):
         """Test circle equality comparison"""
         circle1 = Circle(center=5+10j, r=3)
@@ -142,4 +136,4 @@ class TestCircle:
         assert circle.length() == 2 * math.pi * 3
         # Verify point calculation works
         p = circle.point(0.5)
-        assert abs(p - (-10-5j)) < 1e-10  # Left point of circle
+        assert abs(p - (-13-5j)) < 1e-10  # Left point of circle

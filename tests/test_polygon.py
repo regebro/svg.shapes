@@ -8,20 +8,20 @@ from svg.shapes.shapes import Polygon
 class TestPolygon:
     """Test the Polygon shape implementation"""
 
-    def test_polygon_creation_empty(self):
+    def test_polygon_empty(self):
         """Test creating empty polygon"""
         polygon = Polygon([])
         assert polygon.points == []
         assert polygon.point_count == 0
 
-    def test_polygon_creation_single_point(self):
+    def test_polygon_single_point(self):
         """Test creating polygon with single point"""
         points = [5+10j]
         polygon = Polygon(points)
         assert polygon.points == points
         assert polygon.point_count == 1
 
-    def test_polygon_creation_multiple_points(self):
+    def test_polygon_multiple_points(self):
         """Test creating polygon with multiple points"""
         points = [0+0j, 10+0j, 10+10j, 0+10j]
         polygon = Polygon(points)

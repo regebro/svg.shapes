@@ -90,6 +90,14 @@ Examples::
     size = 100 + 50j     # Width=100, Height=50
     radius = 5 + 3j      # rx=5, ry=3
 
+A note on pathLength
+--------------------
+
+SVG has a pathLength attribute that allows scaling shapes to a specific length.
+`svg.shapes`, just as `svg.path`, does not implement this attribute directly.
+Instead it is seen as a display value that is applied during rendering, and not
+handled by the svg.* libraries.
+
 Development Status
 ------------------
 
