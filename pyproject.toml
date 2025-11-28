@@ -1,0 +1,87 @@
+[build-system]
+requires = ["setuptools>=61.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "svg.shapes"
+version = "0.1.dev0"
+description = "SVG shape objects that extend svg.path with Rectangle, Circle, Ellipse, Polyline, and Polygon"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Topic :: Multimedia :: Graphics",
+]
+keywords = ["svg", "shapes", "path", "graphics", "maths"]
+authors = [{name = "svg.shapes contributors"}]
+license = {text = "MIT"}
+urls = {Homepage = "https://github.com/svg-shapes/svg.shapes"}
+dynamic = ["readme"]
+requires-python = ">=3.8"
+dependencies = [
+    "svg.path>=6.0",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=6.0",
+    "pytest-cov",
+    "black",
+    "flake8",
+    "pyroma",
+    "check-manifest",
+    "mypy",
+]
+dev = [
+    "svg.shapes[test]",
+    "build",
+    "twine",
+]
+
+[tool.setuptools]
+zip-safe = true
+include-package-data = true
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+namespaces = false
+
+[tool.setuptools.dynamic]
+readme = {file = ["README.rst", "CHANGES.txt"]}
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=svg.shapes --cov-report=html --cov-report=term-missing"
+
+[tool.mypy]
+files = ["src", "tests"]
+strict = true
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+
+[tool.coverage.run]
+source = ["svg.shapes"]
+omit = ["tests/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+]

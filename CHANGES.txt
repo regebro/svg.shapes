@@ -1,0 +1,22 @@
+svg.shapes Changes
+==================
+
+0.1.dev0 (unreleased)
+---------------------
+
+* Initial project structure and packaging setup
+* Basic namespace package configuration for svg.* compatibility
+* Re-export svg.path.Path and svg.path.Line for convenience
+* Testing framework setup with pytest and coverage
+* Full type checking support with mypy
+* MIT license matching svg.path
+
+Planned Features for 0.1.0:
+* Rectangle shape implementation (regular and rounded corners)
+* Circle shape implementation using arc approximation
+* Ellipse shape implementation
+* Polyline shape implementation
+* Polygon shape implementation
+* Complete API compatibility with svg.path segments
+* Comprehensive test suite
+* Full documentation and examples
